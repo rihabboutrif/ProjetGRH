@@ -315,114 +315,81 @@
     <div class="card card-table">
     <div class="card-body">
     
+        <div class="page-header">
+            <div class="row align-items-center">
+            <div class="col">
+            <h3 class="page-title">Departments</h3>
+            </div>
+            <div class="col-auto text-end float-end ms-auto download-grp">
+                <a routerLink="/dep-add" class="btn btn-primary">
+                    <i class="fas fa-plus"></i> 
+                  </a>
+                  
+            </div>
+            </div>
+            </div>
+   
+      
+      
+      
+    
+    
+    <table class="table border-0 star-student table-hover table-center mb-0 datatable table-striped">
+        <thead class="student-thread">
+        <tr>
+        <th>
+        <div class="form-check check-tables">
+        <input class="form-check-input" type="checkbox" value="something">
+        </div>
+        </th>
+        <th>ID</th>
+        <th>Nom de départment</th>
+        <th>Professions</th>
+        <th class="text-end">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        
+        
+        <tr *ngFor="let dep of deps"  >
+            <td>
+                <div class="form-check check-tables">
+                <input class="form-check-input" type="checkbox" value="something">
+                </div>
+                </td>
+        <td>{{dep.departmentName}} </td>
+        
+        <td><ul *ngFor="let p of dep.professions">
+            <li>{{p}}</li>
+        </ul></td>
        
-        <form [formGroup]="updateForm" (ngSubmit)="onsubmit()">
-            <div class="row">
-              <div class="col-12">
-                <h5 class="form-title"><span>Update Employee</span></h5>
-              </div>
-              <div class="col-12 col-sm-4">
-                <div class="form-group local-forms">
-                  <label>Name <span class="login-danger">*</span></label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    formControlName="name"
-                    placeholder="Enter name"
-                  />
-                </div>
-              </div>
-              <div class="col-12 col-sm-4">
-                <div class="form-group local-forms">
-                  <label>Current Department</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    [value]="currentDepartmentName"
-                    readonly
-                  />
-                </div>
-              </div>
-              
-              <div class="col-12 col-sm-4">
-                <div class="form-group local-forms">
-                  <label>Department <span class="login-danger">*</span></label>
-                  <select
-                    class="form-control"
-                    formControlName="department"
-                    (change)="onDepartmentChange()"
-                  >
-                    <option *ngFor="let dept of departments" [value]="dept._id">
-                      {{ dept.departmentName }}
-                    </option>
-                  </select>
-                </div>
-              </div>
-              <div class="col-12 col-sm-4">
-                <div class="form-group local-forms">
-                    
-                  <label>Department <span class="login-danger">*</span></label>
-                  <select
-                    class="form-control"
-                    formControlName="department"
-                    (change)="onDepartmentChange()"
-                  >
-                    <option *ngFor="let dept of departments" [value]="dept._id">
-                      {{ dept.departmentName }}
-                    </option>
-                  </select>
-                </div>
-              </div>
-              
-              <div class="col-12 col-sm-4">
-                <div class="form-group local-forms">
-                  <label>Profession <span class="login-danger">*</span></label>
-                  <select
-                    class="form-control"
-                    formControlName="profession"
-                    [disabled]="!availableProfessions.length"
-                  >
-                    <option *ngFor="let prof of availableProfessions" [value]="prof">
-                      {{ prof }}
-                    </option>
-                  </select>
-                </div>
-              </div>
-              
-
-              <div class="col-12 col-sm-4">
-                <div class="form-group local-forms">
-                  <label>Salary <span class="login-danger">*</span></label>
-                  <input
-                    type="number"
-                    class="form-control"
-                    formControlName="salary"
-                    placeholder="Enter salary"
-                  />
-                </div>
-              </div>
-              <div class="col-12">
-                <div class="student-submit">
-                  <button type="submit" class="btn btn-primary" [disabled]="loading">
-                    Update
+        <td class="text-end">
+            <div class="actions">
+                <!--a  (click)="deleteAuction(e.id)" class="btn btn-sm bg-success-light me-2">
+                <i class="feather-delete"></i>
+                </a-->
+                <button type="button" class="btn btn-danger" (click)="onDeleteDep(dep._id)">
+                    Supprimer
+                  </button>
+                <!--a  (click)="getMatiereData(e)" class="btn btn-sm bg-danger-light" data-bs-toggle="modal" data-bs-target="#editreverseModal">
+                <i class="feather-edit"></i>
+                </a-->
+                <button type="button" class="btn btn-primary"   [routerLink]="['/dep-update', dep._id]">
+                    Modifier
                   </button>
                 </div>
-              </div>
-            </div>
-          </form>
-          
-            </div>
-            </div>
-   
-      
-      
-      
-    
-    
-   
+        </td>
+            </tr>
+        
+        
+        
+        </tbody>
+        </table>
    
     </div>
     </div>
     </div>
-    
+    </div>
+    </div>
+
 </div>

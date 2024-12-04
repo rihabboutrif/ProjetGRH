@@ -278,14 +278,14 @@
     <div class="page-header">
     <div class="row align-items-center">
     <div class="col">
-    <h3 class="page-title">Employees</h3>
+    <h3 class="page-title">Departments/h3>
     <ul class="breadcrumb">
     <li class="breadcrumb-item"><a href="index.html">Acceuil</a></li>
-    <li class="breadcrumb-item active">Employees</li>
+    <li class="breadcrumb-item active">Departments/li>
     </ul>
-    </div>
-    </div>
-    </div>
+    
+    
+    
     
     <div class="student-group-form">
     <div class="row">
@@ -316,113 +316,64 @@
     <div class="card-body">
     
        
-        <form [formGroup]="updateForm" (ngSubmit)="onsubmit()">
-            <div class="row">
-              <div class="col-12">
-                <h5 class="form-title"><span>Update Employee</span></h5>
-              </div>
-              <div class="col-12 col-sm-4">
-                <div class="form-group local-forms">
-                  <label>Name <span class="login-danger">*</span></label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    formControlName="name"
-                    placeholder="Enter name"
-                  />
-                </div>
-              </div>
-              <div class="col-12 col-sm-4">
-                <div class="form-group local-forms">
-                  <label>Current Department</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    [value]="currentDepartmentName"
-                    readonly
-                  />
-                </div>
-              </div>
-              
-              <div class="col-12 col-sm-4">
-                <div class="form-group local-forms">
-                  <label>Department <span class="login-danger">*</span></label>
-                  <select
-                    class="form-control"
-                    formControlName="department"
-                    (change)="onDepartmentChange()"
+        <form (ngSubmit)="submitForm()">
+            <div class="form-group">
+              <label for="departmentName">Department Name:</label>
+              <input
+                type="text"
+                id="departmentName"
+                [(ngModel)]="departmentName"
+                name="departmentName"
+                required
+                class="form-control"
+              />
+            </div>
+        
+            <div class="form-group">
+              <label for="professionInput">Profession:</label>
+              <input
+                type="text"
+                id="professionInput"
+                [(ngModel)]="newProfession"
+                name="professionInput"
+                placeholder="Enter a profession"
+                class="form-control"
+              />
+              <button
+                type="button"
+                class="btn btn-secondary mt-2"
+                (click)="addProfession()">
+                Add Profession
+              </button>
+            </div>
+        
+            <div class="profession-list mt-3">
+              <ul>
+                <li *ngFor="let profession of professions; let i = index">
+                  {{ profession }}
+                  <button
+                    type="button"
+                    class="btn btn-sm btn-danger ml-2"
+                    (click)="removeProfession(i)"
                   >
-                    <option *ngFor="let dept of departments" [value]="dept._id">
-                      {{ dept.departmentName }}
-                    </option>
-                  </select>
-                </div>
-              </div>
-              <div class="col-12 col-sm-4">
-                <div class="form-group local-forms">
-                    
-                  <label>Department <span class="login-danger">*</span></label>
-                  <select
-                    class="form-control"
-                    formControlName="department"
-                    (change)="onDepartmentChange()"
-                  >
-                    <option *ngFor="let dept of departments" [value]="dept._id">
-                      {{ dept.departmentName }}
-                    </option>
-                  </select>
-                </div>
-              </div>
-              
-              <div class="col-12 col-sm-4">
-                <div class="form-group local-forms">
-                  <label>Profession <span class="login-danger">*</span></label>
-                  <select
-                    class="form-control"
-                    formControlName="profession"
-                    [disabled]="!availableProfessions.length"
-                  >
-                    <option *ngFor="let prof of availableProfessions" [value]="prof">
-                      {{ prof }}
-                    </option>
-                  </select>
-                </div>
-              </div>
-              
-
-              <div class="col-12 col-sm-4">
-                <div class="form-group local-forms">
-                  <label>Salary <span class="login-danger">*</span></label>
-                  <input
-                    type="number"
-                    class="form-control"
-                    formControlName="salary"
-                    placeholder="Enter salary"
-                  />
-                </div>
-              </div>
-              <div class="col-12">
-                <div class="student-submit">
-                  <button type="submit" class="btn btn-primary" [disabled]="loading">
-                    Update
+                    Remove
                   </button>
-                </div>
-              </div>
+                </li>
+              </ul>
             </div>
+        
+            <input
+              type="hidden"
+              id="professions"
+              name="professions"
+              [value]="professions.join(',')"
+            />
+        
+            <button type="submit" class="btn btn-primary mt-3">Submit</button>
           </form>
-          
             </div>
             </div>
-   
-      
-      
-      
-    
-    
-   
-   
-    </div>
     </div>
     </div>
     
-</div>
+    

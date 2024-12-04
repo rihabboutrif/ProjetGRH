@@ -30,6 +30,44 @@ export class AuthentificationService {
       })
     );
   }
+
+////////////
+apiUrl_dep= "http://localhost:3001/api/departments";
+
+addDepartment(depData: any): Observable<any> {
+  return this.http.post(this.apiUrl_dep, depData, {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }).pipe(
+    catchError(error => {
+      console.error('Une erreur s\'est produite lors de l\'enregistrement de l\'employé:', error);
+      return throwError(error);
+    })
+  );
+}
+
+
+getDeps(): Observable<any> {
+  return this.http.get<any>(`${this.apiUrl_dep}`);
+}
+getDepById(id: string): Observable<any> {
+  return this.http.get<any>(`${this.apiUrl_dep}/${id}`)
+}
+
+updateDep(id: string, userData: any): Observable<any> {
+  return this.http.put<any>(`${this.apiUrl_dep}/${id}`, userData)
+  }
+
+deleteDep(id: string): Observable<any> {
+  return this.http.delete<any>(`${this.apiUrl_dep}/${id}`)
+
+}
+//////////////
+
+
+
+
   isTokenValid(token: string): boolean {
     // Placeholder validation logic (e.g., expiration check)
     return !!token;
