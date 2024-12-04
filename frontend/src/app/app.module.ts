@@ -24,10 +24,16 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDatepickerToggle } from '@angular/material/datepicker';  // Pour le toggle du datepicker
 import { MatNativeDateModule } from '@angular/material/core';
+
+
 import { ListAbsenceComponent } from './list-absence/list-absence.component';
+
 import { AddDepartmentComponent } from './add-department/add-department.component';
 import { UpdateDepartmentComponent } from './update-department/update-department.component';
 import { ListDepartmentComponent } from './list-department/list-department.component';
+import { AccueilComponent } from './accueil/accueil.component';
+import { Login1Component } from './login1/login1.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,9 +48,15 @@ import { ListDepartmentComponent } from './list-department/list-department.compo
     UpdateEmployeeComponent,
     CalendrierComponent,
     ListAbsenceComponent,
+
     AddDepartmentComponent,
     UpdateDepartmentComponent,
     ListDepartmentComponent,
+
+    AccueilComponent,
+    Login1Component,
+    DashboardComponent,
+
     
   ],
   imports: [
@@ -56,13 +68,12 @@ import { ListDepartmentComponent } from './list-department/list-department.compo
     MatDatepickerModule, // Module du datepicker
     MatNativeDateModule, // Module de l'adaptateur natif
     MatFormFieldModule,  // Module pour les champs de formulaire
-    
     MatInputModule,
     MatFormFieldModule,
     MatCardModule,
     MatIconModule,
     MatButtonModule,
-    
+  
   ],
   providers: [
     provideHttpClient(withFetch()),

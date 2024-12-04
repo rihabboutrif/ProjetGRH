@@ -12,9 +12,15 @@ import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
 import { CalendrierComponent } from './calendrier/calendrier.component';
 import { ListAbsenceComponent } from './list-absence/list-absence.component';
+
 import { AddDepartmentComponent } from './add-department/add-department.component';
 import { UpdateDepartmentComponent } from './update-department/update-department.component';
 import { ListDepartmentComponent } from './list-department/list-department.component';
+
+import { AccueilComponent } from './accueil/accueil.component';
+import { Login1Component } from './login1/login1.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+
 const routes: Routes = [
   {path:'register', component: RegisterComponent},
 
@@ -24,6 +30,10 @@ const routes: Routes = [
 
   {path:'login', component: LoginComponent},
   {path:'home', component: HomeComponent,canActivate:[authGuard]},
+
+
+  {path:'employees', component: TestComponent},
+
   {path:'header', component: HeaderComponent},
 
   {path:'test', component: TestComponent},
@@ -35,9 +45,14 @@ const routes: Routes = [
   {path:'calendrier', component: CalendrierComponent},
 
 
+
   {path:'dep-add', component: AddDepartmentComponent},
   {path:'dep-update/:id', component: UpdateDepartmentComponent},
   {path:'dep-list', component: ListDepartmentComponent},
+  {path:'', component: AccueilComponent},
+  {path:'login1', component: Login1Component},
+  {path:'dashboard', component: DashboardComponent},
+
 ];
 
 @NgModule({
