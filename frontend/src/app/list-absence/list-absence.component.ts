@@ -34,7 +34,7 @@ export class ListAbsenceComponent {
     if (confirm('Êtes-vous sûr de vouloir supprimer cet absence ?')) {
       this.UserService.deleteAbsences(userId).subscribe(() => {
         alert('Utilisateur supprimé avec succès');
-        this.getUsers(); // Mettre à jour la liste après la suppression
+        this.fetchUsers(); // Mettre à jour la liste après la suppression
       }, (error: any) => {
         console.error('Erreur lors de la suppression de l\'absence', error);
         alert('Une erreur est survenue lors de la suppression.');

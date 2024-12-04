@@ -14,14 +14,14 @@ import { CalendrierComponent } from './calendrier/calendrier.component';
 import { ListAbsenceComponent } from './list-absence/list-absence.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { Login1Component } from './login1/login1.component';
-import { SubscribeComponent } from './subscribe/subscribe.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 const routes: Routes = [
   {path:'register', component: RegisterComponent},
   {path:'users/update/:id',component: UpdateUserComponent},
   {path:'listusers',component: ListUsersComponent},
   {path:'login', component: LoginComponent},
   {path:'home', component: HomeComponent,canActivate:[authGuard]},
-  {path:'test', component: TestComponent},
+  {path:'employees', component: TestComponent},
   {path:'header', component: HeaderComponent},
   {path:'employee-add', component: AddEmployeeComponent},
   {path:'employee-update/:id', component: UpdateEmployeeComponent},
@@ -29,7 +29,7 @@ const routes: Routes = [
   {path:'calendrier', component: CalendrierComponent},
   {path:'', component: AccueilComponent},
   {path:'login1', component: Login1Component},
-  {path:'subscribe', component: SubscribeComponent},
+  {path:'dashboard', component: DashboardComponent},
 ];
 
 @NgModule({

@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ChartOptions, ChartType } from 'chart.js';
 import {Chart} from 'chart.js/auto';
 @Component({
-  selector: 'app-accueil',
-  templateUrl: './accueil.component.html',
-  styleUrl: './accueil.component.css'
+  selector: 'app-dashboard',
+  templateUrl: './dashboard.component.html',
+  styleUrl: './dashboard.component.css'
 })
-export class AccueilComponent implements OnInit {
+export class DashboardComponent {
   public chart: any;
   ngOnInit(): void {
     this.createChart();
@@ -18,7 +18,7 @@ export class AccueilComponent implements OnInit {
 
       data: {// values on X-Axis
         labels: ['2022-05-10', '2022-05-11', '2022-05-12','2022-05-13',
-                                 '2022-05-14', '2022-05-15', '2022-05-16','2022-05-17', ], 
+                 '2022-05-14', '2022-05-15', '2022-05-16','2022-05-17', ], 
            datasets: [
           {
             label: "Sales",
