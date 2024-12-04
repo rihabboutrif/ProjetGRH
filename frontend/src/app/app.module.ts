@@ -27,6 +27,10 @@ import { MatNativeDateModule } from '@angular/material/core';
 
 
 import { ListAbsenceComponent } from './list-absence/list-absence.component';
+
+import { AddDepartmentComponent } from './add-department/add-department.component';
+import { UpdateDepartmentComponent } from './update-department/update-department.component';
+import { ListDepartmentComponent } from './list-department/list-department.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { Login1Component } from './login1/login1.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -44,9 +48,15 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     UpdateEmployeeComponent,
     CalendrierComponent,
     ListAbsenceComponent,
+
+    AddDepartmentComponent,
+    UpdateDepartmentComponent,
+    ListDepartmentComponent,
+
     AccueilComponent,
     Login1Component,
     DashboardComponent,
+
     
   ],
   imports: [

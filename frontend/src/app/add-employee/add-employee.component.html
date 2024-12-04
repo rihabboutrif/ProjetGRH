@@ -329,17 +329,41 @@
                 </div>
                 </div>
                 <div class="col-12 col-sm-4">
-                <div class="form-group local-forms">
-                <label>Profession <span class="login-danger">*</span></label>
-                <input type="text" class="form-control" id="position" name="position" [(ngModel)]="user.position" required>
-              </div>
-                </div>
-                <div class="col-12 col-sm-4">
-                <div class="form-group local-forms">
-                <label>Department <span class="login-danger">*</span></label>
-                <input type="text" class="form-control" id="department" name="department" [(ngModel)]="user.department" required>
-             </div>
-                </div>
+                    <div class="form-group local-forms">
+                      <label>Department <span class="login-danger">*</span></label>
+                      <select
+                        class="form-control"
+                        id="department"
+                        name="department"
+                        [(ngModel)]="user.department"
+                        (change)="onDepartmentChange()"
+                        required
+                      >
+                        <option *ngFor="let dept of departments" [value]="dept.departmentName">
+                          {{ dept.departmentName }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                  
+                  <div class="col-12 col-sm-4">
+                    <div class="form-group local-forms">
+                      <label>Profession <span class="login-danger">*</span></label>
+                      <select
+                        class="form-control"
+                        id="position"
+                        name="position"
+                        [(ngModel)]="user.profession"
+                        required
+                      >
+                        <option *ngFor="let prof of availableProfessions" [value]="prof">
+                          {{ prof }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                  
+              
                 <div class="col-12 col-sm-4">
                 <div class="form-group local-forms ">
                 <label>Salaire <span class="login-danger">*</span></label>

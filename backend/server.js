@@ -22,6 +22,11 @@ const employeeRoutes = require("./routes/api/Employee");
 app.use("/api/employees", employeeRoutes);
 
 
+
+///////
+const departmentRoutes = require("./routes/api/Departments");
+app.use("/api/departments", departmentRoutes);
+////////
 const absencesRoutes = require("./routes/api/Absences");
 app.use("/api/absences", absencesRoutes);
 

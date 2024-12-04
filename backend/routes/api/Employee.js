@@ -1,24 +1,43 @@
 const express = require("express");
 const router = express.Router();
 const Employee = require("../../models/Employee");
+const mongoose = require("mongoose");
 
 // Create Employee
 router.post("/", async (req, res) => {
     try {
-        const employee = new Employee(req.body);
-        const savedEmployee = await employee.save();
+        const { name, profession, department, salary } = req.body;
+
+        // Validate department is a valid ObjectId
+        if (!mongoose.Types.ObjectId.isValid(department)) {
+            return res.status(400).json({ error: "Invalid department ID" });
+        }
+
+        const newEmployee = new Employee({
+            name,
+            profession,
+            department, // This is an ObjectId
+            salary
+        });
+
+        const savedEmployee = await newEmployee.save();
         res.status(201).json(savedEmployee);
-    } catch (err) {
-        res.status(400).json({ error: err.message });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: "Failed to add employee" });
     }
 });
 
 // Get all Employees
 router.get("/", async (req, res) => {
     try {
-        const employees = await Employee.find();
+        const employees =
+        
+         await Employee.find()
+            .populate({ path: 'department', select: 'departmentName' }); // Adjusted populate syntax
         res.status(200).json(employees);
     } catch (err) {
+        console.error("Error fetching employees:", err);
         res.status(500).json({ error: err.message });
     }
 });

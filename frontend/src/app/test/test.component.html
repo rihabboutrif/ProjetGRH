@@ -341,10 +341,11 @@
         <input class="form-check-input" type="checkbox" value="something">
         </div>
         </th>
-        <th>ID</th>
+        
         <th>Nom</th>
         <th>Profession</th>
         <th>Departement</th>
+        <th>Salary</th>
         <th class="text-end">Actions</th>
         </tr>
         </thead>
@@ -359,8 +360,8 @@
                 </td>
         <td>{{user.name}} </td>
         
-        <td><h2>{{user.position}}</h2></td>
-        <td><h2>{{user.department}}</h2></td>
+        <td><h2>{{user.profession}}</h2></td>
+        <td><h2>{{user.department?.departmentName}}</h2></td>
         <td><h2>{{user.salary}}</h2></td>
         <td class="text-end">
             <div class="actions">
