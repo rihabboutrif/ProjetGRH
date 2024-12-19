@@ -15,18 +15,18 @@ export class TestComponent {
   }
 
   fetchUsers(): void {
-    this.UserService.getUsers().subscribe(
-      (data) => {
-        this.users = data;
+    this.UserService.getUsers().subscribe((data: any[]) => {
+
+        this.users = data.filter(user  => user.role == "employee");;
       },
       (error) => {
         console.error('Erreur lors de la récupération des utilisateurs', error);
       }
     );
   }
-  getUsers(): void {
+ getUsers(): void {
     this.UserService.getUsers().subscribe((data: any[]) => {
-      this.users = data;
+      this.users = data.filter(user=>user.role == "employee");;
     });
   }
   onDeleteUser(userId: string): void {

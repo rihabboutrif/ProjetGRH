@@ -31,6 +31,7 @@ import { Login1Component } from './login1/login1.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
 import { NavbarComponent } from './navbar/navbar.component';
+import { ProfilComponent } from './profil/profil.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,6 +50,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     Login1Component,
     DashboardComponent,
     NavbarComponent,
+    ProfilComponent,
 
     
   ],

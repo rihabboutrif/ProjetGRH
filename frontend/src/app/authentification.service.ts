@@ -1,7 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { catchError, Observable, throwError } from 'rxjs';
+import { jwtDecode } from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root'
@@ -118,6 +119,15 @@ registerUser(UserData:any): Observable<any>{
     return this.cookieService.get('username'); 
   }
 
+  getUserIdFromToken(token: string): any | null {
+    try {
+      const decodedToken = jwtDecode<any>(token); // Decode the token
+      return decodedToken; // Return the full decoded token
+    } catch (error) {
+      console.error('Error decoding token:', error);
+      return null;
+    }
+  }
   
   ///////////absence
   apiUrl2= "http://localhost:3001/api/absences";
@@ -139,6 +149,11 @@ registerUser(UserData:any): Observable<any>{
     return this.http.delete<any>(`${this.apiUrl2}/${id}`)
   
   }
- 
+  showPassword: boolean = false;
 
+  togglePasswordVisibility(): void {
+  
+    this.showPassword = ! this.showPassword;
+  
+  }
 }
