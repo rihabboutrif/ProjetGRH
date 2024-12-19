@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { authGuard } from './auth.guard';
-import { HeaderComponent } from './header/header.component';
 import { TestComponent } from './test/test.component';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
@@ -15,6 +14,7 @@ import { ListDepartmentComponent } from './list-department/list-department.compo
 import { AccueilComponent } from './accueil/accueil.component';
 import { Login1Component } from './login1/login1.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ProfilComponent } from './profil/profil.component';
 
 const routes: Routes = [
 
@@ -23,6 +23,7 @@ const routes: Routes = [
 
 
   {path:'login1', component: Login1Component},
+  {path:'profil', component: ProfilComponent, canActivate: [authGuard]},
 
 
   {path:'dashboard', component: DashboardComponent, canActivate: [authGuard]},

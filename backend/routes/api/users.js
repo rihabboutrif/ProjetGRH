@@ -1,3 +1,4 @@
+
 const router =require("express").Router();
 const bcrypt =require("bcryptjs");
 const config =require ("config");
@@ -99,7 +100,7 @@ router.get('/all', async (req, res) => {
     const { id } = req.params;
   
     try {
-      const user = await User.findById(id);
+      const user = await User.findById(id).populate({ path: 'department', select: 'departmentName' });
       if (!user) {
         return res.status(404).json({ message: 'Utilisateur non trouvé' });
       }
@@ -112,7 +113,7 @@ router.get('/all', async (req, res) => {
   // Mettre à jour un utilisateur par ID (UPDATE)
   router.put('/:id', async (req, res) => {
     const { id } = req.params;
-    const { username, email, password, role,name, profession, department, salary } = req.body;
+    const { username, email, password, role,name, profession, department, salary,gender } = req.body;
   
     try {
       const updatedUser = await User.findByIdAndUpdate(
@@ -185,6 +186,9 @@ router.post("/login-user", (req, res) => {
   });
 });
 
+
+
+// Export the router to be used in your main app
 
 module.exports=router;
 

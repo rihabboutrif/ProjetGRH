@@ -14,11 +14,16 @@ export class Login1Component {
 
   user:any={};
 
-  
+  showPassword: boolean = false;
+
 
   constructor(private userService: AuthentificationService, private router : Router,private cookieService: CookieService) {}
 
+  togglePasswordVisibility(){
+    console.log("hhh");
+    return this.userService.togglePasswordVisibility();
 
+  }
 
   submit(): void {
    const  UserData={
@@ -60,4 +65,5 @@ export class Login1Component {
       }
     );
   }
+
 }

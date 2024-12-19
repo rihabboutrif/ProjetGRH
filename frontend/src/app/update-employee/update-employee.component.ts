@@ -125,7 +125,7 @@ export class UpdateEmployeeComponent implements OnInit {
         () => {
           this.loading = false;
           alert('Employee updated successfully');
-          this.router.navigate(['/test']);
+          this.router.navigate(['/employees']);
         },
         (error) => {
           this.loading = false;
